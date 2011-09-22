@@ -218,6 +218,8 @@ class Doctrine_Template_Sortable extends Doctrine_Template
       throw new Doctrine_Exception('moveToPosition requires an Integer as the new position. Entered ' . $newPosition);
     }
 
+    $index = 'position_'.$index; // Because options have position as prefix
+    
     $object = $this->getInvoker();
     $position = $object->get($this->_options[$index]['name']);
     $conn = $object->getTable()->getConnection();
